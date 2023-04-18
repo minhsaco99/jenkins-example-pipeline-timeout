@@ -2,11 +2,14 @@ pipeline {
   agent {
     docker {image 'python:3.9-bullseye'}
   }  
+  environment{
+    NAME = "Minh"
+  }
   stages{
     stage('Exec'){
       steps{
-        sh 'python -m modules'
-        sh 'python -m modules.helloworld'
+        sh 'python -m modules ${NAME}'
+        sh 'python -m modules.helloworld ${NAME}'
       }
     }
   }
