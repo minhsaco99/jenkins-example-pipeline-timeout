@@ -5,7 +5,8 @@ pipeline {
   stages{
     stage('Exec'){
       steps{
-        sh 'python -m print("hello world")'
+        sh 'python -m modules'
+        sh 'python -m modules.helloworld'
       }
     }
   }
