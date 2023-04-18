@@ -6,11 +6,13 @@ pipeline {
   stages {
     stage('input') {
       agent any
-      input {
-        message "What is your first name?"
-        ok "Submit"
-        parameters {
-          string(defaultValue: 'Dave', name: 'FIRST_NAME', trim: true) 
+      retry(3){
+        input {
+          message "What is your first name?"
+          ok "Submit"
+          parameters {
+            string(defaultValue: 'Dave', name: 'FIRST_NAME', trim: true) 
+          }
         }
       }
       options {
