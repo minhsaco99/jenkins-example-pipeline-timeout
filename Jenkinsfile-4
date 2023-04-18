@@ -4,6 +4,9 @@ pipeline {
     timeout(time: 30, unit: 'SECONDS') 
   }
   stages {
+    options {
+      timeout(time: 3, unit: 'SECONDS') 
+    }
     stage('input') {
       agent any
       input {
