@@ -7,16 +7,15 @@ pipeline {
     stage('input') {
       agent any
       options {
-        timeout(time: 10, unit: 'SECONDS') 
+        retry(5)
+        timeout(time: 3, unit: 'SECONDS') 
       }
       steps {
-        retry(3){
-          echo "Good Morning, Minh"
-          sh '''
-            hostname
-          '''
-          sh '/bin/bash test.sh'
-        }
+        echo "Good Morning, Minh"
+        sh '''
+          hostname
+        '''
+        sh '/bin/bash test.sh'
       }
     }
   }
