@@ -1,2 +1,3 @@
 #!/bin/bash
-sleep 15
+sleep 3
+exit 125
