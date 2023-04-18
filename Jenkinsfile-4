@@ -15,7 +15,7 @@ pipeline {
           sh '''
             hostname
           '''
-          aaaaaa
+          sh test.sh
         }
       }
     }
