@@ -7,6 +7,9 @@ pipeline {
             }
         }
     }
+    environment{
+      P_NAME = "TEST"
+    }
     post {
         always {
             echo 'One way or another, I have finished'
@@ -19,8 +22,8 @@ pipeline {
         }
         failure {
             mail to: 'minhsaco99@gmail.com',
-                 subject: "Failed to build ${P_NAME}",
-                 body: "Some thing is wrong when build"
+                 subject: "Failed to build ${currentBuild.fullDisplayName}",
+                 body: "Some thing is wrong when build ${env.BUILD_URL}"
 
         }
         changed {
