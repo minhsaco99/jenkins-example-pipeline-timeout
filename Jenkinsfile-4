@@ -10,17 +10,12 @@ pipeline {
         timeout(time: 10, unit: 'SECONDS') 
       }
       steps {
-        input {
-          message "What is your first name?"
-          ok "Submit"
-          parameters {
-            string(defaultValue: 'Dave', name: 'FIRST_NAME', trim: true) 
-          }
+        retry(3){
+          echo "Good Morning, $FIRST_NAME"
+          sh '''
+            hostname
+          '''
         }
-        echo "Good Morning, $FIRST_NAME"
-        sh '''
-          hostname
-        '''
       }
     }
   }
