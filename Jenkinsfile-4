@@ -2,9 +2,9 @@ pipeline {
   agent {
     docker {image 'python:3.9-bullseye'}
   }  
-  environment{
-    NAME = "Minh"
-  }
+  // environment{
+  //   NAME = "Minh"
+  // }
   stages{
     stage('Exec'){
       steps{
