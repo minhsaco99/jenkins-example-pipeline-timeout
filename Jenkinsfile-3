@@ -21,7 +21,7 @@ pipeline {
             echo 'I am unstable :/'
         }
         failure {
-            mail to: 'minhsaco99@gmail.com',
+            emailext to: 'minhsaco99@gmail.com',
                  subject: "Failed to build ${currentBuild.fullDisplayName}",
                  body: "Some thing is wrong when build ${env.BUILD_URL}"
 
