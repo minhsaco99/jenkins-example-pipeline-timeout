@@ -19,7 +19,7 @@ pipeline {
         }
         failure {
             mail to: 'minhsaco99@gmail.com',
-                 subject: "Failed to build ${P_NAME}"
+                 subject: "Failed to build ${P_NAME}",
                  body: "Some thing is wrong when build"
 
         }
